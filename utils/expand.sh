@@ -1,6 +1,6 @@
 #!/bin/bash
-DEV='/dev/sdb'
-PART='/dev/sdb2'
+DEV=$1
+PART="$1"2
 
 # Get the total size of the SD card
 DISK_SIZE=$(fdisk -l $DEV | grep 'Disk /' | awk '{print $7}')
@@ -23,4 +23,5 @@ sfdisk $DEV < ./partition.layout
 rm ./partition.layout
 
 # Expand the filesystem to fill the newly sized partiotion
+e2fsck -f $PART
 resize2fs $PART
