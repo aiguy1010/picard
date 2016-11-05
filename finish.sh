@@ -12,7 +12,7 @@ fi
 DEV=$1
 PART="$DEV"2
 
-NEW_HOSTNAME=$1
+NEW_HOSTNAME=$2
 
 # Unmout everything
 umount "$DEV"*
